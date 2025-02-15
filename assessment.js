@@ -70,30 +70,28 @@ assessmentButton.addEventListener('click',()=>
     resultDivision.innerText = '';
 
 
-    const heading2 = document.createElement('h3');
-    heading2.innerText = `${userName}さんの`;
-    resultDivision.appendChild(heading2);
 
+    // headerDivision の作成
+    const headerDivision = document.createElement('div');
+    headerDivision.setAttribute('class', 'card-header text-bg-primary');
+    headerDivision.innerText = '診断結果';
 
+    // bodyDivision の作成
+    const bodyDivision = document.createElement('div');
+    bodyDivision.setAttribute('class', 'card-body');
 
-        //診断結果の表示のためのH3タグの作成
-    const heading = document.createElement('h3');
-        //H3タグに「診断結果」という文字列を設定
-    heading.innerText = '診断結果';
-        //H3タグをresult-areaの子要素として追加
-    resultDivision.appendChild(heading);
-
-        //診断結果の表示のためのPタグの作成
     const paragraph = document.createElement('p');
-        //Pタグに診断結果を設定
+    paragraph.setAttribute('class', 'card-text');
     const result = assessment(userName);
     paragraph.innerText = result;
-        //Pタグをresult-areaの子要素として追加
-    resultDivision.appendChild(paragraph);
+    bodyDivision.appendChild(paragraph);
 
+    // resultDivision に Bootstrap のスタイルを適用する
+    resultDivision.setAttribute('class', 'card');
 
-
-
+    // headerDivision と bodyDivision を resultDivision に差し込む
+    resultDivision.appendChild(headerDivision);
+    resultDivision.appendChild(bodyDivision);
 
 
     //TODO ツイートエリアの作成
